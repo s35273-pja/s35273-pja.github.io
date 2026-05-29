@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Ewolucje Eevee - Ewolucje</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="nav-bar">
+    <h1 class="site-title">Eevee Fandom</h1>
+
+<nav class="navigation">
+
+    <a href="index.html" class="nav-link">Strona główna</a>
+
+<div class="dropdown">
+    <a href="ewolucje.html" class="nav-link dropdown-main">Ewolucje</a>
+
+    <button class="dropdown-btn">▼</button>
+
+    <div class="dropdown-content">
+        <a href="vaporeon.html">Vaporeon</a>
+        <a href="jolteon.html">Jolteon</a>
+        <a href="flareon.html">Flareon</a>
+        <a href="espeon.html">Espeon</a>
+        <a href="umbreon.html">Umbreon</a>
+        <a href="leafeon.html">Leafeon</a>
+        <a href="glaceon.html">Glaceon</a>
+        <a href="sylveon.html">Sylveon</a>
+    </div>
+</div>
+    <a href="gra.html" class="nav-link">Gra</a>
+    <a href="sklep.html" class="nav-link">Sklep</a>
+
+</nav>
+
+</header>
+
+<main class="content">
+
+    <h2 class="evo-title">Wszystkie ewolucje Eevee</h2>
+
+    <p class="evo-desc">
+        Kliknij na wybraną ewolucję, aby przejść do jej szczegółowej podstrony.
+    </p>
+
+    <section class="evo-grid">
+
+        <a href="vaporeon.html" class="evo-card">
+            <h3>Vaporeon</h3>
+            <div class="evo-img">Miejsce na zdjęcie</div>
+        </a>
+
+        <a href="jolteon.html" class="evo-card">
+            <h3>Jolteon</h3>
+            <div class="evo-img">Miejsce na zdjęcie</div>
+        </a>
+
+        <a href="flareon.html" class="evo-card">
+            <h3>Flareon</h3>
+            <div class="evo-img">Miejsce na zdjęcie</div>
+        </a>
+
+        <a href="espeon.html" class="evo-card">
+            <h3>Espeon</h3>
+            <div class="evo-img">Miejsce na zdjęcie</div>
+        </a>
+
+        <a href="umbreon.html" class="evo-card">
+            <h3>Umbreon</h3>
+            <div class="evo-img">Miejsce na zdjęcie</div>
+        </a>
+
+        <a href="leafeon.html" class="evo-card">
+            <h3>Leafeon</h3>
+            <div class="evo-img">Miejsce na zdjęcie</div>
+        </a>
+
+        <a href="glaceon.html" class="evo-card">
+            <h3>Glaceon</h3>
+            <div class="evo-img">Miejsce na zdjęcie</div>
+        </a>
+
+        <a href="sylveon.html" class="evo-card">
+            <h3>Sylveon</h3>
+            <div class="evo-img">Miejsce na zdjęcie</div>
+        </a>
+
+    </section>
+
+</main>
+
+<!-- Scroll to top -->
+<button id="scrollTopBtn" class="scroll-top">▲</button>
+
+<footer class="footer">
+    <p>Eevee Fandom © 2026</p>
+    <p>Wszelkie prawa zastrzeżone</p>
+    <p>Kontakt: eevee-fandom@example.com</p>
+</footer>
+
+<script>
+    const btn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+        btn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+
+    btn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+</script>
+
+</body>
+</html>

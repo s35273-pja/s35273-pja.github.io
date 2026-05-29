@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Eevee Fandom – Gra</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="nav-bar">
+    <h1 class="site-title">Eevee Fandom</h1>
+
+    <nav class="navigation">
+        <a href="index.html" class="nav-link">Strona główna</a>
+
+<div class="dropdown">
+    <a href="ewolucje.html" class="nav-link dropdown-main">Ewolucje</a>
+
+    <button class="dropdown-btn">▼</button>
+
+    <div class="dropdown-content">
+        <a href="vaporeon.html">Vaporeon</a>
+        <a href="jolteon.html">Jolteon</a>
+        <a href="flareon.html">Flareon</a>
+        <a href="espeon.html">Espeon</a>
+        <a href="umbreon.html">Umbreon</a>
+        <a href="leafeon.html">Leafeon</a>
+        <a href="glaceon.html">Glaceon</a>
+        <a href="sylveon.html">Sylveon</a>
+    </div>
+</div>
+
+        <a href="gra.html" class="nav-link active">Gra</a>
+        <a href="sklep.html" class="nav-link">Sklep</a>
+    </nav>
+</header>
+
+<main class="content game-page">
+
+    <h2>Labirynt Eevee – poziomy 1–5</h2>
+    <p class="game-desc">
+        Steruj Eevee za pomocą klawiszy strzałek. Przejdź przez labirynt od poziomu 1 do 5.
+        Po ukończeniu piątego poziomu zobaczysz zakończenie podróży.
+    </p>
+
+    <div class="game-wrapper">
+        <div class="game-top-bar">
+            <span id="levelInfo">Poziom: 1</span>
+            <button id="fullscreenBtn" class="game-btn">Pełny ekran</button>
+        </div>
+
+        <!-- Miejsce na obrazek Eevee – używane w grze jako sprite -->
+        <!-- Podmień src na swoją grafikę Eevee -->
+        <img id="eeveeSprite" src="eevee.png" alt="Eevee" style="display:none;">
+
+        <canvas id="gameCanvas" width="640" height="480"></canvas>
+
+        <div id="endScreen" class="end-screen hidden">
+            <h3>The End Of The Journey</h3>
+            <button id="restartBtn" class="game-btn">Restart Game</button>
+        </div>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <p>Eevee Fandom © 2026</p>
+    <p>Wszelkie prawa zastrzeżone</p>
+    <p>Kontakt: eevee-fandom@example.com</p>
+</footer>
+
+<script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    const levelInfo = document.getElementById("levelInfo");
+    const endScreen = document.getElementById("endScreen");
+    const restartBtn = document.getElementById("restartBtn");
+    const fullscreenBtn = document.getElementById("fullscreenBtn");
+    const eeveeSprite = document.getElementById("eeveeSprite");
+
+    const tileSize = 40;
+
+    // 0 – puste, 1 – ściana, 2 – start, 3 – meta
+    const levels = [
+        [
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,2,0,0,0,1,0,0,0,0,0,1,0,0,3,1],
+            [1,0,1,1,0,1,0,1,1,1,0,1,0,1,0,1],
+            [1,0,1,0,0,0,0,1,0,0,0,0,0,1,0,1],
+            [1,0,1,0,1,1,0,1,0,1,1,1,0,1,0,1],
+            [1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1],
+            [1,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1],
+            [1,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1],
+            [1,0,0,0,0,1,0,1,0,0,0,1,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        ],
+        [
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,2,0,0,0,0,1,0,0,0,0,0,0,0,3,1],
+            [1,0,1,1,1,0,1,0,1,1,1,1,1,0,1,1],
+            [1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1],
+            [1,1,1,0,1,1,1,1,1,1,1,0,1,1,0,1],
+            [1,0,0,0,0,0,0,0,0,0,1,0,0,1,0,1],
+            [1,0,1,1,1,1,1,1,1,0,1,1,0,1,0,1],
+            [1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1],
+            [1,0,1,1,1,1,1,0,1,1,1,1,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        ],
+        [
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,2,0,0,1,0,0,0,0,1,0,0,0,0,3,1],
+            [1,0,1,0,1,0,1,1,0,1,0,1,1,0,1,1],
+            [1,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1],
+            [1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1],
+            [1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,1],
+            [1,1,1,1,0,1,1,1,1,0,1,1,0,1,0,1],
+            [1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,1],
+            [1,0,0,0,0,1,0,1,1,1,1,1,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        ],
+        [
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,2,0,0,0,0,0,1,0,0,0,0,0,0,3,1],
+            [1,0,1,1,1,1,0,1,0,1,1,1,1,0,1,1],
+            [1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1],
+            [1,1,1,1,0,1,1,1,1,1,1,0,1,1,0,1],
+            [1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,1],
+            [1,0,1,1,1,1,1,1,1,0,1,1,0,1,0,1],
+            [1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1],
+            [1,0,1,1,1,1,1,0,1,1,1,1,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        ],
+        [
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,2,0,0,0,0,0,1,0,0,0,0,0,0,3,1],
+            [1,0,1,1,1,1,0,1,0,1,1,1,1,0,1,1],
+            [1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1],
+            [1,1,1,1,0,1,1,1,1,1,1,0,1,1,0,1],
+            [1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,1],
+            [1,0,1,1,1,1,1,1,1,0,1,1,0,1,0,1],
+            [1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1],
+            [1,0,1,1,1,1,1,0,1,1,1,1,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        ]
+    ];
+
+    let currentLevel = 0;
+    let player = { x: 0, y: 0 };
+
+    function findStart(level) {
+        for (let y = 0; y < level.length; y++) {
+            for (let x = 0; x < level[y].length; x++) {
+                if (level[y][x] === 2) {
+                    return { x, y };
+                }
+            }
+        }
+        return { x: 1, y: 1 };
+    }
+
+    function drawLevel() {
+        const level = levels[currentLevel];
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let y = 0; y < level.length; y++) {
+            for (let x = 0; x < level[y].length; x++) {
+                const tile = level[y][x];
+                if (tile === 1) {
+                    ctx.fillStyle = "#7a8f3a";
+                    ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);
+                } else if (tile === 3) {
+                    ctx.fillStyle = "#f4b400";
+                    ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);
+                }
+            }
+        }
+
+        // Rysowanie Eevee
+        const px = player.x * tileSize;
+        const py = player.y * tileSize;
+
+        if (eeveeSprite.complete) {
+            ctx.drawImage(eeveeSprite, px, py, tileSize, tileSize);
+        } else {
+            ctx.fillStyle = "#c27b39";
+            ctx.fillRect(px + 4, py + 4, tileSize - 8, tileSize - 8);
+        }
+    }
+
+    function loadLevel(index) {
+        currentLevel = index;
+        const start = findStart(levels[currentLevel]);
+        player.x = start.x;
+        player.y = start.y;
+        levelInfo.textContent = "Poziom: " + (currentLevel + 1);
+        endScreen.classList.add("hidden");
+        drawLevel();
+    }
+
+    function tryMove(dx, dy) {
+        const level = levels[currentLevel];
+        const nx = player.x + dx;
+        const ny = player.y + dy;
+
+        if (ny < 0 || ny >= level.length || nx < 0 || nx >= level[0].length) return;
+        const tile = level[ny][nx];
+        if (tile === 1) return;
+
+        player.x = nx;
+        player.y = ny;
+
+        if (tile === 3) {
+            if (currentLevel === levels.length - 1) {
+                showEnd();
+            } else {
+                loadLevel(currentLevel + 1);
+                return;
+            }
+        }
+
+        drawLevel();
+    }
+
+    function showEnd() {
+        endScreen.classList.remove("hidden");
+    }
+
+    window.addEventListener("keydown", (e) => {
+        switch (e.key) {
+            case "ArrowUp":
+                tryMove(0, -1);
+                break;
+            case "ArrowDown":
+                tryMove(0, 1);
+                break;
+            case "ArrowLeft":
+                tryMove(-1, 0);
+                break;
+            case "ArrowRight":
+                tryMove(1, 0);
+                break;
+        }
+    });
+
+    restartBtn.addEventListener("click", () => {
+        loadLevel(0);
+    });
+
+    fullscreenBtn.addEventListener("click", () => {
+        if (!document.fullscreenElement) {
+            canvas.requestFullscreen().catch(() => {});
+        } else {
+            document.exitFullscreen();
+        }
+    });
+
+    eeveeSprite.onload = () => {
+        drawLevel();
+    };
+
+    loadLevel(0);
+</script>
+
+</body>
+</html>
