@@ -2,74 +2,71 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eevee Fandom – Gra</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header class="nav-bar">
-    <h1 class="site-title">Eevee Fandom</h1>
+    <header>
+        <h1>
+            Eevee Fandom
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png" alt="Eevee">
+        </h1>
+        <nav>
+            <a href="index.html">Strona główna</a>
+            <div class="dropdown">
+                <a href="ewolucje.html">Ewolucje ▼</a>
+                <ul class="dropdown-content">
+                    <li><a href="espeon.html">Espeon</a></li>
+                    <li><a href="flareon.html">Flareon</a></li>
+                    <li><a href="glaceon.html">Glaceon</a></li>
+                    <li><a href="jolteon.html">Jolteon</a></li>
+                    <li><a href="leafeon.html">Leafeon</a></li>
+                    <li><a href="sylveon.html">Sylveon</a></li>
+                    <li><a href="umbreon.html">Umbreon</a></li>
+                    <li><a href="vaporeon.html">Vaporeon</a></li>
+                </ul>
+            </div>
+            <a href="gra.html">Gra</a>
+            <a href="sklep.html">Sklep</a>
+        </nav>
+    </header>
 
-    <nav class="navigation">
-        <a href="index.html" class="nav-link">Strona główna</a>
+    <main class="podstrona-kontent">
 
-<div class="dropdown">
-    <a href="ewolucje.html" class="nav-link dropdown-main">Ewolucje</a>
+        <section class="sekcja">
+            <h2 class="strona-tytul">Labirynt Eevee – poziomy 1–5</h2>
+            <p class="strona-opis">
+                Steruj Eevee za pomocą <strong>klawiszy strzałek</strong> na klawiaturze. Przejdź przez labirynt od poziomu 1 do 5.
+                Po ukończeniu piątego poziomu ukończysz podróż.
+            </p>
+        </section>
 
-    <button class="dropdown-btn">▼</button>
+        <div class="game-wrapper">
+            <div class="game-top-bar">
+                <span id="levelInfo">Poziom: 1</span>
+                <button id="fullscreenBtn" class="game-btn">Pełny ekran</button>
+            </div>
 
-    <div class="dropdown-content">
-        <a href="vaporeon.html">Vaporeon</a>
-        <a href="jolteon.html">Jolteon</a>
-        <a href="flareon.html">Flareon</a>
-        <a href="espeon.html">Espeon</a>
-        <a href="umbreon.html">Umbreon</a>
-        <a href="leafeon.html">Leafeon</a>
-        <a href="glaceon.html">Glaceon</a>
-        <a href="sylveon.html">Sylveon</a>
-    </div>
-</div>
+            <div class="canvas-container">
+                <img id="eeveeSprite" src="eevee.png" alt="Eevee Sprite" style="display:none;">
+                <canvas id="gameCanvas" width="640" height="400"></canvas>
 
-        <a href="gra.html" class="nav-link active">Gra</a>
-        <a href="sklep.html" class="nav-link">Sklep</a>
-    </nav>
-</header>
-
-<main class="content game-page">
-
-    <h2>Labirynt Eevee – poziomy 1–5</h2>
-    <p class="game-desc">
-        Steruj Eevee za pomocą klawiszy strzałek. Przejdź przez labirynt od poziomu 1 do 5.
-        Po ukończeniu piątego poziomu zobaczysz zakończenie podróży.
-    </p>
-
-    <div class="game-wrapper">
-        <div class="game-top-bar">
-            <span id="levelInfo">Poziom: 1</span>
-            <button id="fullscreenBtn" class="game-btn">Pełny ekran</button>
+                <div id="endScreen" class="end-screen hidden">
+                    <h3>Gratulacje!</h3>
+                    <p>Udało Ci się przejść cały labirynt!</p>
+                    <button id="restartBtn" class="game-btn">Graj ponownie</button>
+                </div>
+            </div>
         </div>
 
-        <!-- Miejsce na obrazek Eevee – używane w grze jako sprite -->
-        <!-- Podmień src na swoją grafikę Eevee -->
-        <img id="eeveeSprite" src="eevee.png" alt="Eevee" style="display:none;">
+    </main>
 
-        <canvas id="gameCanvas" width="640" height="480"></canvas>
-
-        <div id="endScreen" class="end-screen hidden">
-            <h3>The End Of The Journey</h3>
-            <button id="restartBtn" class="game-btn">Restart Game</button>
-        </div>
-    </div>
-
-</main>
-
-<footer class="footer">
-    <p>Eevee Fandom © 2026</p>
-    <p>Wszelkie prawa zastrzeżone</p>
-    <p>Kontakt: eevee-fandom@example.com</p>
-</footer>
+    <footer>
+        <p><strong>Autor: Aleksandra Kłos</strong> (nr indeksu: s35273)</p>
+        <p>Eevee Fandom © 2026 | Wszelkie prawa zastrzeżone</p>
+    </footer>
 
 <script>
     const canvas = document.getElementById("gameCanvas");
@@ -82,7 +79,6 @@
 
     const tileSize = 40;
 
-    // 0 – puste, 1 – ściana, 2 – start, 3 – meta
     const levels = [
         [
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
@@ -134,13 +130,13 @@
         ],
         [
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-            [1,2,0,0,0,0,0,1,0,0,0,0,0,0,3,1],
-            [1,0,1,1,1,1,0,1,0,1,1,1,1,0,1,1],
-            [1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1],
-            [1,1,1,1,0,1,1,1,1,1,1,0,1,1,0,1],
-            [1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,1],
-            [1,0,1,1,1,1,1,1,1,0,1,1,0,1,0,1],
-            [1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1],
+            [1,2,0,0,0,1,0,0,0,1,0,0,0,0,3,1],
+            [1,0,1,0,1,1,0,1,0,1,1,0,1,1,1,1],
+            [1,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1],
+            [1,1,1,1,1,1,0,1,1,1,1,0,1,0,1,1],
+            [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+            [1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1],
+            [1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,1],
             [1,0,1,1,1,1,1,0,1,1,1,1,0,0,0,1],
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
         ]
@@ -152,9 +148,7 @@
     function findStart(level) {
         for (let y = 0; y < level.length; y++) {
             for (let x = 0; x < level[y].length; x++) {
-                if (level[y][x] === 2) {
-                    return { x, y };
-                }
+                if (level[y][x] === 2) return { x, y };
             }
         }
         return { x: 1, y: 1 };
@@ -177,15 +171,14 @@
             }
         }
 
-        // Rysowanie Eevee
         const px = player.x * tileSize;
         const py = player.y * tileSize;
 
-        if (eeveeSprite.complete) {
+        if (eeveeSprite.complete && eeveeSprite.naturalWidth !== 0) {
             ctx.drawImage(eeveeSprite, px, py, tileSize, tileSize);
         } else {
             ctx.fillStyle = "#c27b39";
-            ctx.fillRect(px + 4, py + 4, tileSize - 8, tileSize - 8);
+            ctx.fillRect(px + 2, py + 2, tileSize - 4, tileSize - 4);
         }
     }
 
@@ -205,13 +198,12 @@
         const ny = player.y + dy;
 
         if (ny < 0 || ny >= level.length || nx < 0 || nx >= level[0].length) return;
-        const tile = level[ny][nx];
-        if (tile === 1) return;
+        if (level[ny][nx] === 1) return;
 
         player.x = nx;
         player.y = ny;
 
-        if (tile === 3) {
+        if (level[ny][nx] === 3) {
             if (currentLevel === levels.length - 1) {
                 showEnd();
             } else {
@@ -219,7 +211,6 @@
                 return;
             }
         }
-
         drawLevel();
     }
 
@@ -228,38 +219,28 @@
     }
 
     window.addEventListener("keydown", (e) => {
+        if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(e.key)) {
+            e.preventDefault();
+        }
         switch (e.key) {
-            case "ArrowUp":
-                tryMove(0, -1);
-                break;
-            case "ArrowDown":
-                tryMove(0, 1);
-                break;
-            case "ArrowLeft":
-                tryMove(-1, 0);
-                break;
-            case "ArrowRight":
-                tryMove(1, 0);
-                break;
+            case "ArrowUp":    tryMove(0, -1); break;
+            case "ArrowDown":  tryMove(0,  1); break;
+            case "ArrowLeft":  tryMove(-1, 0); break;
+            case "ArrowRight": tryMove(1,  0); break;
         }
     });
 
-    restartBtn.addEventListener("click", () => {
-        loadLevel(0);
-    });
-
+    restartBtn.addEventListener("click", () => { loadLevel(0); });
     fullscreenBtn.addEventListener("click", () => {
         if (!document.fullscreenElement) {
-            canvas.requestFullscreen().catch(() => {});
+            const container = document.querySelector(".canvas-container");
+            container.requestFullscreen().catch(() => {});
         } else {
             document.exitFullscreen();
         }
     });
 
-    eeveeSprite.onload = () => {
-        drawLevel();
-    };
-
+    eeveeSprite.onload = () => { drawLevel(); };
     loadLevel(0);
 </script>
 
