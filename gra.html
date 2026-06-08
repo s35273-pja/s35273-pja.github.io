@@ -3,40 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eevee Fandom – Gra</title>
+    <title>Eevee Fandom - Glaceon</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>
-            Eevee Fandom
-            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png" alt="Eevee">
-        </h1>
+    <h1>
+        Eevee Fandom
+        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png" alt="Eevee">
+    </h1>
+    
+    <nav>
+        <a href="index.html">Strona główna</a>
         
-        <nav>
-            <a href="index.html">Strona główna</a>
-            
-            <div class="dropdown">
-                <a href="ewolucje.html">Ewolucje ▼</a>
-                <ul class="dropdown-content">
-                    <li><a href="vaporeon.html">Vaporeon</a></li>
-                    <li><a href="jolteon.html">Jolteon</a></li>
-                    <li><a href="flareon.html">Flareon</a></li>
-                    <li><a href="espeon.html">Espeon</a></li>
-                    <li><a href="umbreon.html">Umbreon</a></li>
-                    <li><a href="leafeon.html">Leafeon</a></li>
-                    <li><a href="glaceon.html">Glaceon</a></li>
-                    <li><a href="sylveon.html">Sylveon</a></li>
-                </ul>
-            </div>
-            
-            <a href="gra.html">Gra</a>
-            <a href="sklep.html">Sklep</a>
-        </nav>
-    </header>
+        <div class="dropdown">
+            <a href="ewolucje.html">Ewolucje ▼</a>
+            <ul class="dropdown-content">
+                <li><a href="vaporeon.html">Vaporeon</a></li>
+                <li><a href="jolteon.html">Jolteon</a></li>
+                <li><a href="flareon.html">Flareon</a></li>
+                <li><a href="espeon.html">Espeon</a></li>
+                <li><a href="umbreon.html">Umbreon</a></li>
+                <li><a href="leafeon.html">Leafeon</a></li>
+                <li><a href="glaceon.html">Glaceon</a></li>
+                <li><a href="sylveon.html">Sylveon</a></li>
+            </ul>
+        </div>
+        
+        <a href="gra.html">Gra</a>
+        <a href="sklep.html">Sklep</a>
+    </nav>
+</header>
 
     <main class="podstrona">
+
         <section class="sekcja">
             <h2 class="strona-tytul">Labirynt Eevee – poziomy 1–5</h2>
             <p class="strona-opis">
@@ -62,6 +63,7 @@
                 </div>
             </div>
         </div>
+
     </main>
 
     <footer>
@@ -69,91 +71,181 @@
         <p>Eevee Fandom © 2026 | Wszelkie prawa zastrzeżone</p>
     </footer>
 
-    <script>
-        const canvas = document.getElementById("ekrangry");
-        const ctx = canvas.getContext("2d");
-        const levelInfo = document.getElementById("levelInfo");
-        const endScreen = document.getElementById("endScreen");
-        const restartBtn = document.getElementById("restartBtn");
-        const fullscreenBtn = document.getElementById("fullscreenBtn");
-        const eeveeSprite = document.getElementById("eeveeSprite");
+<script>
+    const canvas = document.getElementById("ekrangry");
+    const ctx = canvas.getContext("2d");
+    const levelInfo = document.getElementById("levelInfo");
+    const endScreen = document.getElementById("endScreen");
+    const restartBtn = document.getElementById("restartBtn");
+    const fullscreenBtn = document.getElementById("fullscreenBtn");
+    const eeveeSprite = document.getElementById("eeveeSprite");
 
-        const tileSize = 40;
+    const tileSize = 40;
 
-        const levels = [
-            [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,2,0,0,0,1,0,0,0,0,0,1,0,0,3,1],[1,0,1,1,0,1,0,1,1,1,0,1,0,1,0,1],[1,0,1,0,0,0,0,1,0,0,0,0,0,1,0,1],[1,0,1,0,1,1,0,1,0,1,1,1,0,1,0,1],[1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1],[1,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1],[1,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1],[1,0,0,0,0,1,0,1,0,0,0,1,0,0,0,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]],
-            [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,2,0,0,0,0,1,0,0,0,0,0,0,0,3,1],[1,0,1,1,1,0,1,0,1,1,1,1,1,0,1,1],[1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1],[1,1,1,0,1,1,1,1,1,1,1,0,1,1,0,1],[1,0,0,0,0,0,0,0,0,0,1,0,0,1,0,1],[1,0,1,1,1,1,1,1,1,0,1,1,0,1,0,1],[1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1],[1,0,1,1,1,1,1,0,1,1,1,1,0,0,0,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]],
-            [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,2,0,0,1,0,0,0,0,1,0,0,0,0,3,1],[1,0,1,0,1,0,1,1,0,1,0,1,1,0,1,1],[1,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1],[1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1],[1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,1],[1,1,1,1,0,1,1,1,1,0,1,1,0,1,0,1],[1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,1],[1,0,0,0,0,1,0,1,1,1,1,1,0,0,0,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]],
-            [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,2,0,0,0,0,0,1,0,0,0,0,0,0,3,1],[1,0,1,1,1,1,0,1,0,1,1,1,1,0,1,1],[1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1],[1,1,1,1,0,1,1,1,1,1,1,0,1,1,0,1],[1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,1],[1,0,1,1,1,1,1,1,1,0,1,1,0,1,0,1],[1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1],[1,0,1,1,1,1,1,0,1,1,1,1,0,0,0,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]],
-            [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,2,0,0,0,1,0,0,0,1,0,0,0,0,3,1],[1,0,1,0,1,1,0,1,0,1,1,0,1,1,1,1],[1,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1],[1,1,1,1,1,1,0,1,1,1,1,0,1,0,1,1],[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],[1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1],[1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,1],[1,0,1,1,1,1,1,0,1,1,1,1,0,0,0,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]]
-        ];
+    const levels = [
+        [
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,2,0,0,0,1,0,0,0,0,0,1,0,0,3,1],
+            [1,0,1,1,0,1,0,1,1,1,0,1,0,1,0,1],
+            [1,0,1,0,0,0,0,1,0,0,0,0,0,1,0,1],
+            [1,0,1,0,1,1,0,1,0,1,1,1,0,1,0,1],
+            [1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1],
+            [1,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1],
+            [1,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1],
+            [1,0,0,0,0,1,0,1,0,0,0,1,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        ],
+        [
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,2,0,0,0,0,1,0,0,0,0,0,0,0,3,1],
+            [1,0,1,1,1,0,1,0,1,1,1,1,1,0,1,1],
+            [1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1],
+            [1,1,1,0,1,1,1,1,1,1,1,0,1,1,0,1],
+            [1,0,0,0,0,0,0,0,0,0,1,0,0,1,0,1],
+            [1,0,1,1,1,1,1,1,1,0,1,1,0,1,0,1],
+            [1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1],
+            [1,0,1,1,1,1,1,0,1,1,1,1,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        ],
+        [
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,2,0,0,1,0,0,0,0,1,0,0,0,0,3,1],
+            [1,0,1,0,1,0,1,1,0,1,0,1,1,0,1,1],
+            [1,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1],
+            [1,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1],
+            [1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,1],
+            [1,1,1,1,0,1,1,1,1,0,1,1,0,1,0,1],
+            [1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,1],
+            [1,0,0,0,0,1,0,1,1,1,1,1,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        ],
+        [
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,2,0,0,0,0,0,1,0,0,0,0,0,0,3,1],
+            [1,0,1,1,1,1,0,1,0,1,1,1,1,0,1,1],
+            [1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1],
+            [1,1,1,1,0,1,1,1,1,1,1,0,1,1,0,1],
+            [1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,1],
+            [1,0,1,1,1,1,1,1,1,0,1,1,0,1,0,1],
+            [1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1],
+            [1,0,1,1,1,1,1,0,1,1,1,1,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        ],
+        [
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,2,0,0,0,1,0,0,0,1,0,0,0,0,3,1],
+            [1,0,1,0,1,1,0,1,0,1,1,0,1,1,1,1],
+            [1,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1],
+            [1,1,1,1,1,1,0,1,1,1,1,0,1,0,1,1],
+            [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+            [1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1],
+            [1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,1],
+            [1,0,1,1,1,1,1,0,1,1,1,1,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        ]
+    ];
 
-        let currentLevel = 0;
-        let player = { x: 0, y: 0 };
+    let currentLevel = 0;
+    let player = { x: 0, y: 0 };
 
-        function findStart(level) {
-            for (let y = 0; y < level.length; y++) {
-                for (let x = 0; x < level[y].length; x++) {
-                    if (level[y][x] === 2) return { x, y };
+    function findStart(level) {
+        for (let y = 0; y < level.length; y++) {
+            for (let x = 0; x < level[y].length; x++) {
+                if (level[y][x] === 2) return { x, y };
+            }
+        }
+        return { x: 1, y: 1 };
+    }
+
+    function drawLevel() {
+        const level = levels[currentLevel];
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let y = 0; y < level.length; y++) {
+            for (let x = 0; x < level[y].length; x++) {
+                const tile = level[y][x];
+                if (tile === 1) {
+                    ctx.fillStyle = "#7a8f3a";
+                    ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);
+                } else if (tile === 3) {
+                    ctx.fillStyle = "#f4b400";
+                    ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);
                 }
             }
-            return { x: 1, y: 1 };
         }
 
-        function drawLevel() {
-            const level = levels[currentLevel];
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let y = 0; y < level.length; y++) {
-                for (let x = 0; x < level[y].length; x++) {
-                    const tile = level[y][x];
-                    if (tile === 1) { ctx.fillStyle = "#7a8f3a"; ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize); }
-                    else if (tile === 3) { ctx.fillStyle = "#f4b400"; ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize); }
-                }
+        const px = player.x * tileSize;
+        const py = player.y * tileSize;
+
+        if (eeveeSprite.complete && eeveeSprite.naturalWidth !== 0) {
+            ctx.drawImage(eeveeSprite, px, py, tileSize, tileSize);
+        } else {
+            ctx.fillStyle = "#c27b39";
+            ctx.fillRect(px + 2, py + 2, tileSize - 4, tileSize - 4);
+        }
+    }
+
+    function loadLevel(index) {
+        currentLevel = index;
+        const start = findStart(levels[currentLevel]);
+        player.x = start.x;
+        player.y = start.y;
+        levelInfo.textContent = "Poziom: " + (currentLevel + 1);
+        endScreen.classList.add("hidden");
+        drawLevel();
+    }
+
+    function tryMove(dx, dy) {
+        const level = levels[currentLevel];
+        const nx = player.x + dx;
+        const ny = player.y + dy;
+
+        if (ny < 0 || ny >= level.length || nx < 0 || nx >= level[0].length) return;
+        if (level[ny][nx] === 1) return;
+
+        player.x = nx;
+        player.y = ny;
+
+        if (level[ny][nx] === 3) {
+            if (currentLevel === levels.length - 1) {
+                showEnd();
+            } else {
+                loadLevel(currentLevel + 1);
+                return;
             }
-            const px = player.x * tileSize; const py = player.y * tileSize;
-            if (eeveeSprite.complete && eeveeSprite.naturalWidth !== 0) { ctx.drawImage(eeveeSprite, px, py, tileSize, tileSize); }
-            else { ctx.fillStyle = "#c27b39"; ctx.fillRect(px + 2, py + 2, tileSize - 4, tileSize - 4); }
         }
+        drawLevel();
+    }
 
-        function loadLevel(index) {
-            currentLevel = index;
-            const start = findStart(levels[currentLevel]);
-            player = { x: start.x, y: start.y };
-            levelInfo.textContent = "Poziom: " + (currentLevel + 1);
-            endScreen.classList.add("hidden");
-            drawLevel();
+    function showEnd() {
+        endScreen.classList.remove("hidden");
+    }
+
+    window.addEventListener("keydown", (e) => {
+        if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(e.key)) {
+            e.preventDefault();
         }
-
-        function tryMove(dx, dy) {
-            const level = levels[currentLevel];
-            const nx = player.x + dx; const ny = player.y + dy;
-            if (ny < 0 || ny >= level.length || nx < 0 || nx >= level[0].length || level[ny][nx] === 1) return;
-            player.x = nx; player.y = ny;
-            if (level[ny][nx] === 3) {
-                if (currentLevel === levels.length - 1) endScreen.classList.remove("hidden");
-                else loadLevel(currentLevel + 1);
-            }
-            drawLevel();
+        switch (e.key) {
+            case "ArrowUp":    tryMove(0, -1); break;
+            case "ArrowDown":  tryMove(0,  1); break;
+            case "ArrowLeft":  tryMove(-1, 0); break;
+            case "ArrowRight": tryMove(1,  0); break;
         }
+    });
 
-        window.addEventListener("keydown", (e) => {
-            if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(e.key)) e.preventDefault();
-            switch (e.key) {
-                case "ArrowUp": tryMove(0, -1); break;
-                case "ArrowDown": tryMove(0, 1); break;
-                case "ArrowLeft": tryMove(-1, 0); break;
-                case "ArrowRight": tryMove(1, 0); break;
-            }
-        });
+    restartBtn.addEventListener("click", () => { loadLevel(0); });
+    fullscreenBtn.addEventListener("click", () => {
+        if (!document.fullscreenElement) {
+            const container = document.querySelector(".oknogry");
+            container.requestFullscreen().catch(() => {});
+        } else {
+            document.exitFullscreen();
+        }
+    });
 
-        restartBtn.addEventListener("click", () => { loadLevel(0); });
-        fullscreenBtn.addEventListener("click", () => {
-            if (!document.fullscreenElement) document.querySelector(".oknogry").requestFullscreen();
-            else document.exitFullscreen();
-        });
+    eeveeSprite.onload = () => { drawLevel(); };
+    loadLevel(0);
+</script>
 
-        eeveeSprite.onload = drawLevel;
-        loadLevel(0);
-    </script>
 </body>
 </html>
