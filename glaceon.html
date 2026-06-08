@@ -9,41 +9,45 @@
 <body>
 
     <header>
-        <h1>
-            Eevee Fandom
-            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png" alt="Eevee">
-        </h1>
-        <nav>
-            <a href="index.html">Strona główna</a>
-            <div class="dropdown">
-                <a href="ewolucje.html">Ewolucje ▼</a>
-                <ul class="dropdown-content">
-                    <li><a href="espeon.html">Espeon</a></li>
-                    <li><a href="flareon.html">Flareon</a></li>
-                    <li><a href="glaceon.html">Glaceon</a></li>
-                    <li><a href="jolteon.html">Jolteon</a></li>
-                    <li><a href="leafeon.html">Leafeon</a></li>
-                    <li><a href="sylveon.html">Sylveon</a></li>
-                    <li><a href="umbreon.html">Umbreon</a></li>
-                    <li><a href="vaporeon.html">Vaporeon</a></li>
-                </ul>
-            </div>
-            <a href="gra.html">Gra</a>
-            <a href="sklep.html">Sklep</a>
-        </nav>
-    </header>
+    <h1>
+        Eevee Fandom
+        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png" alt="Eevee">
+    </h1>
+    
+    <nav>
+        <a href="index.html">Strona główna</a>
+        
+        <div class="dropdown">
+            <a href="ewolucje.html">Ewolucje ▼</a>
+            <ul class="dropdown-content">
+                <li><a href="vaporeon.html">Vaporeon</a></li>
+                <li><a href="jolteon.html">Jolteon</a></li>
+                <li><a href="flareon.html">Flareon</a></li>
+                <li><a href="espeon.html">Espeon</a></li>
+                <li><a href="umbreon.html">Umbreon</a></li>
+                <li><a href="leafeon.html">Leafeon</a></li>
+                <li><a href="glaceon.html">Glaceon</a></li>
+                <li><a href="sylveon.html">Sylveon</a></li>
+            </ul>
+        </div>
+        
+        <a href="gra.html">Gra</a>
+        <a href="sklep.html">Sklep</a>
+    </nav>
+</header>
 
-    <main class="podstrona-kontent">
+    <main class="podstrona">
         <div class="pokemon-layout">
 
-            <div class="pokemon-lewo-boczny">
-                <aside class="sekcja-boczna ciekawostka-box">
-                    <h3 style="text-align: center;">Czy wiesz, że...?</h3>
+            <div class="pokemon-lewo">
+                <aside class="panele-boczne ciekawostka">
+                    <!-- Zmieniono na h2 z zachowaniem wyglądu h3 za pomocą stylów inline -->
+                    <h2 style="text-align: center; font-size: 1.17em; margin-top: 1em; margin-bottom: 1em; font-weight: bold;">Czy wiesz, że...?</h2>
                     <p>Glaceon skrywa wiele tajemnic związanych z mechaniką gier oraz swoim wyglądem:</p>
                     <ul style="text-align: left; padding-left: 20px; font-size: 14px; line-height: 1.6; color: #333; margin-top: 10px;">
                         <li style="margin-bottom: 8px;"><strong>Temperatura ciała:</strong> Glaceon potrafi obniżyć temperaturę swojego ciała do równego -60°C, co pozwala mu natychmiast zamrażać grunt wokół siebie.</li>
                         <li style="margin-bottom: 8px;"><strong>Diamentowy pył:</strong> Zamrażając wilgoć z powietrza, potrafi stworzyć widowiskowy, mieniący się pył lodowy, który oślepia i dezorientuje przeciwników podczas walki.</li>
-                        <li><strong>Unikalne kamienie:</strong> W pierwszych grach (Generacja IV) Kamień Lodu jeszcze nie istniał. Eevee mógł ewoluować w Glaceona tylko poprzez awansowanie na wyższy poziom blisko zamarzniętej skały (Ice Rock) na Trasie 217.</li>
+                        <li><strong>Unikalne kamienie:</strong> W prvzych grach (Generacja IV) Kamień Lodu jeszcze nie istniał. Eevee mógł ewoluować w Glaceona tylko poprzez awansowanie na wyższy poziom blisko zamarzniętej skały (Ice Rock) na Trasie 217.</li>
                     </ul>
                 </aside>
             </div>
@@ -56,13 +60,15 @@
                         Potrafi błyskawicznie zamrozić wilgoć w otaczającym go powietrzu, tworząc wokół siebie chmurę diamentowego pyłu lub lodowych igieł, którymi atakuje wrogów.
                     </p>
                 </section>
-
-                <section class="sekcja-obrazek">
+                <div class="sekcja-obrazek">
                     <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/471.png" alt="Pokémon Glaceon" class="pokemon-img">
-                </section>
+                </div>
 
-                <section class="tabela-sekcja">
-                    <table class="tabela-pokemon">
+                <section class="tabela">
+                    
+                    <h2 style="font-size: 1.17em; margin-bottom: 15px; font-weight: bold;">Informacje</h2>
+                    
+                    <table class="tabela2">
                         <tr><td class="label">Klasyfikacja</td><td>Pokémon Świeży Śnieg</td></tr>
                         <tr><td class="label">Typ</td><td style="color: #00BCD4; font-weight: bold;">Lodowy</td></tr>
                         <tr><td class="label">Generacja</td><td>IV</td></tr>
@@ -78,29 +84,29 @@
                 </section>
             </div>
 
-            <div class="pokemon-prawo-boczny">
-                <aside class="sekcja-boczna mapa-box">
-                    <h3 style="text-align: center;">Region</h3>
-                    <div class="mapa-kontener">
+            <div class="pokemon-prawo">
+                <aside class="panele-boczne mapa-box">
+                    <h2 style="text-align: center; font-size: 1.17em; margin-top: 1em; margin-bottom: 1em; font-weight: bold;">Region</h2>
+                    <div class="mapa">
                         <img src="sinnoh.png" alt="Mapa regionu Sinnoh" class="mapa-img">
                     </div>
                     
                     <div style="font-size: 14px; line-height: 1.5; color: #333; margin-bottom: 15px;">
                         <p><strong>Region pochodzenia:</strong> Sinnoh (Generacja IV)</p>
                         <p style="margin-top: 5px; font-size: 13px; color: #666; padding-bottom: 10px; border-bottom: 1px dashed #ddd;">
-                            Sinnoh to górzysty i pełen mitów region, w którym kluczową rolę odgrywa legendarna Góra Coronet. Północne strefy tego regionu skute są wiecznym lodem i głębokim śniegiem.
+                            Sinnoh to górzysty i pełen mitów region, w którym kluczową rolę odgrywa legendarna Góra Coronet. Był on wzorowany na japońskiej wyspie Hokkaido.
                         </p>
                     </div>
 
                     <div class="regiony-guziki">
-                        <a href="https://bulbapedia.bulbagarden.net/wiki/Kanto" target="_blank" class="btn-region">Kanto</a>
-                        <a href="https://bulbapedia.bulbagarden.net/wiki/Johto" target="_blank" class="btn-region">Johto</a>
-                        <a href="https://bulbapedia.bulbagarden.net/wiki/Hoenn" target="_blank" class="btn-region">Hoenn</a>
-                        <a href="https://bulbapedia.bulbagarden.net/wiki/Sinnoh" target="_blank" class="btn-region active"><u>Sinnoh</u></a>
-                        <a href="https://bulbapedia.bulbagarden.net/wiki/Unova" target="_blank" class="btn-region">Unova</a>
-                        <a href="https://bulbapedia.bulbagarden.net/wiki/Kalos" target="_blank" class="btn-region">Kalos</a>
-                        <a href="https://bulbapedia.bulbagarden.net/wiki/Alola" target="_blank" class="btn-region">Alola</a>
-                        <a href="https://bulbapedia.bulbagarden.net/wiki/Galar" target="_blank" class="btn-region">Galar</a>
+                        <a href="https://bulbapedia.bulbagarden.net/wiki/Kanto" target="_blank" class="regiony-guziki2">Kanto</a>
+                        <a href="https://bulbapedia.bulbagarden.net/wiki/Johto" target="_blank" class="regiony-guziki2">Johto</a>
+                        <a href="https://bulbapedia.bulbagarden.net/wiki/Hoenn" target="_blank" class="regiony-guziki2">Hoenn</a>
+                        <a href="https://bulbapedia.bulbagarden.net/wiki/Sinnoh" target="_blank" class="regiony-guziki2 active"><u>Sinnoh</u></a>
+                        <a href="https://bulbapedia.bulbagarden.net/wiki/Unova" target="_blank" class="regiony-guziki2">Unova</a>
+                        <a href="https://bulbapedia.bulbagarden.net/wiki/Kalos" target="_blank" class="regiony-guziki2">Kalos</a>
+                        <a href="https://bulbapedia.bulbagarden.net/wiki/Alola" target="_blank" class="regiony-guziki2">Alola</a>
+                        <a href="https://bulbapedia.bulbagarden.net/wiki/Galar" target="_blank" class="regiony-guziki2">Galar</a>
                     </div>
                 </aside>
             </div>

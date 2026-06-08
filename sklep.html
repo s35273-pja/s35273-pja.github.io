@@ -13,21 +13,24 @@
             Eevee Fandom
             <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png" alt="Eevee">
         </h1>
+        
         <nav>
             <a href="index.html">Strona główna</a>
+            
             <div class="dropdown">
                 <a href="ewolucje.html">Ewolucje ▼</a>
                 <ul class="dropdown-content">
-                    <li><a href="espeon.html">Espeon</a></li>
-                    <li><a href="flareon.html">Flareon</a></li>
-                    <li><a href="glaceon.html">Glaceon</a></li>
-                    <li><a href="jolteon.html">Jolteon</a></li>
-                    <li><a href="leafeon.html">Leafeon</a></li>
-                    <li><a href="sylveon.html">Sylveon</a></li>
-                    <li><a href="umbreon.html">Umbreon</a></li>
                     <li><a href="vaporeon.html">Vaporeon</a></li>
+                    <li><a href="jolteon.html">Jolteon</a></li>
+                    <li><a href="flareon.html">Flareon</a></li>
+                    <li><a href="espeon.html">Espeon</a></li>
+                    <li><a href="umbreon.html">Umbreon</a></li>
+                    <li><a href="leafeon.html">Leafeon</a></li>
+                    <li><a href="glaceon.html">Glaceon</a></li>
+                    <li><a href="sylveon.html">Sylveon</a></li>
                 </ul>
             </div>
+            
             <a href="gra.html">Gra</a>
             <a href="sklep.html">Sklep</a>
         </nav>
@@ -43,11 +46,11 @@
             </p>
         </section>
 
-        <div class="sklep-kontener-flex">
+        <div class="sklep-flex">
             
             <div class="produkt-karta">
                 <img src="pluszak.png" alt="Pluszak Eevee">
-                <h4>Pluszak Eevee</h4>
+                <h3>Pluszak Eevee</h3>
                 <p>Puszysta i urocza przytulanka.</p>
                 <div class="produkt-dol">
                     <p class="produkt-cena">59,99 zł</p>
@@ -56,7 +59,7 @@
 
             <div class="produkt-karta">
                 <img src="funkopop.png" alt="Funko Pop Vaporeon">
-                <h4>Funko Pop Vaporeon</h4>
+                <h3>Funko Pop Vaporeon</h3>
                 <p>Kolekcjonerska figurka idealna na biurko.</p>
                 <div class="produkt-dol">
                     <p class="produkt-cena">39,99 zł</p>
@@ -65,19 +68,19 @@
 
             <div class="produkt-karta">
                 <img src="koszulka.png" alt="Koszulka Eeveelutions">
-                <h4>Koszulka Eeveelutions</h4>
+                <h3>Koszulka Eeveelutions</h3>
                 <p>Bawełniany t-shirt ze wszystkimi ewolucjami.</p>
                 <div class="produkt-dol">
-                    <button class="btn-rozmiarowka" onclick="document.getElementById('modalRozmiary').style.display='flex'">📏 Rozmiarówka</button>
+                    <button class="rozmiarowka" onclick="pokazPodglad()">📏 Rozmiarówka</button>
                     <p class="produkt-cena">79,99 zł</p>
                 </div>
             </div>
 
         </div>
 
-        <div id="modalRozmiary" class="modal-overlay" onclick="if(event.target===this)this.style.display='none'">
-            <div class="modal-box">
-                <button class="modal-zamknij" onclick="document.getElementById('modalRozmiary').style.display='none'">✕</button>
+        <div id="modalRozmiary" class="modal-overlay">
+            <div class="modal">
+                <button class="modal-zamknij" onclick="schowajPodglad()">✕</button>
                 <h3>Rozmiarówka koszulek</h3>
                 <table class="tabela-rozmiary">
                     <tr>
@@ -86,60 +89,34 @@
                         <th>Długość (cm)</th>
                         <th>Szerokość ramion (cm)</th>
                     </tr>
-                    <tr>
-                        <td>S</td>
-                        <td>88–92</td>
-                        <td>68</td>
-                        <td>42</td>
-                    </tr>
-                    <tr>
-                        <td>M</td>
-                        <td>96–100</td>
-                        <td>71</td>
-                        <td>44</td>
-                    </tr>
-                    <tr>
-                        <td>L</td>
-                        <td>104–108</td>
-                        <td>74</td>
-                        <td>47</td>
-                    </tr>
-                    <tr>
-                        <td>XL</td>
-                        <td>112–116</td>
-                        <td>77</td>
-                        <td>50</td>
-                    </tr>
-                    <tr>
-                        <td>XXL</td>
-                        <td>120–124</td>
-                        <td>80</td>
-                        <td>53</td>
-                    </tr>
+                    <tr><td>S</td><td>88–92</td><td>68</td><td>42</td></tr>
+                    <tr class="wiersz-szary"><td>M</td><td>96–100</td><td>71</td><td>44</td></tr>
+                    <tr><td>L</td><td>104–108</td><td>74</td><td>47</td></tr>
+                    <tr class="wiersz-szary"><td>XL</td><td>112–116</td><td>77</td><td>50</td></tr>
+                    <tr><td>XXL</td><td>120–124</td><td>80</td><td>53</td></tr>
                 </table>
                 <p class="modal-info">Nie wiesz jaki rozmiar wybrać? Skontaktuj się z nami, a z chęcią pomożemy!</p>
             </div>
         </div>
 
-        <section class="formularz-sekcja">
+        <section class="formularz">
             <h3>Formularz zamówienia</h3>
-
             <form action="dzieki.html" method="GET">
                 <label>Wybierz produkt:</label>
-                <select>
-                    <option>Pluszak Eevee - 59,99 zł</option>
-                    <option>Figurka Vaporeon - 39,99 zł</option>
-                    <option>Koszulka Eeveelutions - 79,99 zł</option>
+                <select name="produkt">
+                    <option value="pluszak">Pluszak Eevee - 59,99 zł</option>
+                    <option value="figurka">Figurka Vaporeon - 39,99 zł</option>
+                    <option value="koszulka">Koszulka Eeveelutions - 79,99 zł</option>
                 </select>
 
                 <label>Imię i nazwisko:</label>
-                <input type="text" placeholder="Np. Anna Kowalska" required>
+                <input type="text" placeholder="Np. Jan Kowalski" required>
 
                 <label>Adres e-mail:</label>
-                <input type="email" placeholder="Np. annakowalska@gmail.com" required>
+                <input type="email" placeholder="Np. jankowalski@gmail.com" required>
 
                 <label>Ulica i numer domu:</label>
-                <input type="text" placeholder="Np. ul. Kwiatowa 15" required>
+                <input type="text" placeholder="Np. ul. Równa 10" required>
 
                 <label>Miasto:</label>
                 <input type="text" placeholder="Np. Warszawa" required>
@@ -150,16 +127,25 @@
                 <label>Uwagi do zamówienia:</label>
                 <textarea rows="3" placeholder="..."></textarea>
 
-                <input type="submit" value="Złóż zamówienie" class="btn-zamow">
+                <input type="submit" value="Złóż zamówienie" class="zamow">
             </form>
         </section>
-
     </main>
 
     <footer>
         <p><strong>Autor: Aleksandra Kłos</strong> (nr indeksu: s35273)</p>
         <p>Eevee Fandom © 2026 | Wszelkie prawa zastrzeżone</p>
     </footer>
+
+    <script>
+        function pokazPodglad() {
+            document.getElementById('modalRozmiary').style.display = 'flex';
+        }
+
+        function schowajPodglad() {
+            document.getElementById('modalRozmiary').style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>

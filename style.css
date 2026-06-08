@@ -1,4 +1,8 @@
-/* ===== STYLE BAZOWE ===== */
+/* style te bazowe */
+img {
+    max-width: 100%;
+    height: auto;
+}
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -6,45 +10,53 @@ body {
     background-color: #ffffff;
     color: #333;
 }
-
-/* ===== HEADER & NAWIGACJA ===== */
+/* header */
 header {
     text-align: center;
     padding: 20px;
     background-color: #ffffff;
     border-bottom: 3px solid #7a8f3a;
 }
-
 header h1 {
     font-size: 30px;
     color: #4a5d23;
     margin-bottom: 10px;
 }
-
 header h1 img {
     height: 40px;
     vertical-align: middle;
     margin-left: 10px;
     margin-bottom: 5px;
 }
-
-nav a, .dropdown > a {
+nav a, .lista > a {
     margin: 0 10px;
     text-decoration: none;
     color: #333;
     font-weight: bold;
 }
-
-nav a:hover, .dropdown:hover > a {
+/* Pasek nawigacji */
+nav {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+nav a:hover {
     color: #7a8f3a;
 }
-
+/* dropdown */
 .dropdown {
     display: inline-block;
     position: relative;
-    margin: 0 10px;
 }
-
 .dropdown-content {
     display: none;
     list-style-type: none;
@@ -54,59 +66,51 @@ nav a:hover, .dropdown:hover > a {
     border: 1px solid #ccc;
     position: absolute;
     left: 0;
-    width: 90px;
+    width: 90px; 
     text-align: left;
-    z-index: 100;
+    z-index: 1000; 
 }
-
+/* po najechaniu */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 .dropdown-content li a {
     text-decoration: none;
     color: #333;
     padding: 5px 0;
     display: block;
-    font-weight: normal;
 }
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* ===== KONTENERY STRON ===== */
+/* kontenery stron */
 .glowny-kontent, .sklep-kontent {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 30px 10px;
     text-align: center;
 }
-
-.podstrona-kontent {
+.podstrona {
     width: 100%;
     box-sizing: border-box;
     padding: 20px 40px;
     text-align: center;
 }
-
-/* ===== UKŁAD POKEMONA (TRZYKOLUMNOWY) ===== */
+/* =flexbox uklad trojkolumnowy */
 .pokemon-layout {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
 }
-
-.pokemon-lewo-boczny, .pokemon-prawo-boczny {
+.pokemon-lewo, .pokemon-prawo {
     flex: 1;
     min-width: 240px;
     max-width: 320px;
     margin-top: 240px;
 }
-
 .pokemon-srodek {
     flex: 3;
     min-width: 400px;
 }
-
-.sekcja-boczna {
+.panele-boczne {
     background-color: #fffdf0;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -114,8 +118,7 @@ nav a:hover, .dropdown:hover > a {
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     text-align: left;
 }
-
-.sekcja-boczna h3 {
+.panele-boczne h3 {
     margin-top: 0;
     margin-bottom: 15px;
     color: #4a5d23;
@@ -123,32 +126,27 @@ nav a:hover, .dropdown:hover > a {
     padding-bottom: 5px;
     font-size: 18px;
 }
-
-.ciekawostka-box p {
+.ciekawostka p {
     font-size: 14px;
     line-height: 1.6;
 }
-
-.mapa-kontener {
+.mapa {
     text-align: center;
     margin-bottom: 15px;
 }
-
 .mapa-img {
     max-width: 100%;
     height: auto;
     border-radius: 6px;
     border: 1px solid #ddd;
 }
-
-/* PRZYCISKI REGIONÓW */
+/* regiony  */
 .regiony-guziki {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
 }
-
-.btn-region {
+.regiony-guziki2 {
     display: block;
     text-align: center;
     padding: 8px 4px;
@@ -161,85 +159,63 @@ nav a:hover, .dropdown:hover > a {
     font-weight: bold;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
-
-.btn-region:hover {
+.regiony-guziki2:hover {
     background-color: #fffbe8;
     transform: translateY(-1px);
 }
-
-.btn-region.active {
-    background-color: #9C27B0; 
+.regiony-guziki2.active {
+    background-color: #9C27B0;
     color: #ffffff;
     border-color: #7B1FA2;
 }
-
-.btn-region.active:hover {
+.regiony-guziki2.active:hover {
     background-color: #7B1FA2;
 }
-
-/* ===== TYPOGRAFIA I OBRAZKI ===== */
+/* obrazki typografia itd itd */
 .strona-tytul {
     font-size: 35px;
     color: #4a5d23;
     margin-bottom: 10px;
 }
-
 .strona-opis {
     font-size: 16px;
     line-height: 1.5;
 }
-
-.sekcja {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-}
-
 .pokemon-img {
     max-height: 250px;
 }
-
-.main-eevee-img {
+.main-eevee {
     max-width: 100%;
     height: auto;
     max-height: 350px;
     filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
 }
-
-.sekcja-obrazek {
-    margin-bottom: 20px;
-}
-
-/* ===== TABELA POKEMON ===== */
-.tabela-sekcja {
+/* tabelka */
+.tabela {
     max-width: 500px;
     margin: 0 auto;
     text-align: left;
 }
-
-.tabela-pokemon {
+.tabela2 {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
     background-color: #fffdf0;
 }
-
-.tabela-pokemon td {
+.tabela2 td {
     padding: 10px;
     border: 1px solid #ddd;
 }
-
-.tabela-pokemon .label {
+.tabela2 .label {
     font-weight: bold;
     width: 40%;
     color: #4a5d23;
 }
-
 .tooltip {
     cursor: help;
     border-bottom: 2px dotted #7a8f3a;
     font-weight: bold;
 }
-
 .pokedex-wpis {
     background-color: #fffbe8;
     padding: 20px;
@@ -247,19 +223,16 @@ nav a:hover, .dropdown:hover > a {
     margin-bottom: 20px;
     text-align: left;
 }
-
 .pokedex-wpis h3 {
     margin-top: 0;
     color: #4a5d23;
 }
-
 .pokedex-wpis p {
     font-style: italic;
     margin: 0;
 }
-
-/* ===== NOWY SKLEP (FLEXBOX) ===== */
-.sklep-kontener-flex {
+/* sklep flexbox */
+.sklep-flex {
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -267,7 +240,6 @@ nav a:hover, .dropdown:hover > a {
     flex-wrap: wrap;
     margin-bottom: 40px;
 }
-
 .produkt-karta {
     background-color: #fffdf0;
     border: 1px solid #ddd;
@@ -277,41 +249,35 @@ nav a:hover, .dropdown:hover > a {
     flex-direction: column;
     text-align: center;
 }
-
 .produkt-karta img {
     height: 140px;
     object-fit: contain;
     margin-bottom: 10px;
 }
-
-.produkt-karta h4 {
+.produkt-karta h3 {
     margin: 10px 0 5px 0;
     color: #4a5d23;
     font-size: 18px;
 }
-
 .produkt-karta p {
     font-size: 14px;
     color: #666;
     margin: 5px 0;
 }
-
 .produkt-dol {
     margin-top: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .produkt-cena {
     font-weight: bold;
     color: #7a8f3a;
     font-size: 16px;
     margin: 10px 0 0 0;
 }
-
-/* ===== FORMULARZ ===== */
-.formularz-sekcja {
+/* formularz */
+.formularz {
     max-width: 500px;
     margin: 0 auto 20px auto;
     text-align: left;
@@ -319,37 +285,32 @@ nav a:hover, .dropdown:hover > a {
     padding: 25px;
     border-left: 5px solid #7a8f3a;
 }
-
-.formularz-sekcja h3 {
+.formularz h3 {
     margin-top: 0;
     color: #4a5d23;
     text-align: center;
     font-size: 22px;
 }
-
-.formularz-sekcja label {
+.formularz label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
     font-size: 15px;
 }
-
-.formularz-sekcja select,
-.formularz-sekcja input[type="text"],
-.formularz-sekcja input[type="email"],
-.formularz-sekcja textarea {
+.formularz select,
+.formularz input[type="text"],
+.formularz input[type="email"],
+.formularz textarea {
     width: 96%;
     padding: 8px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     background-color: #ffffff;
 }
-
-.formularz-sekcja textarea {
+.formularz textarea {
     resize: none;
 }
-
-.btn-zamow {
+.zamow {
     display: block;
     margin: 0 auto;
     background-color: #7a8f3a;
@@ -360,13 +321,11 @@ nav a:hover, .dropdown:hover > a {
     font-size: 16px;
     cursor: pointer;
 }
-
-.btn-zamow:hover {
+.zamow:hover {
     background-color: #4a5d23;
 }
-
-/* ===== GRA LABIRYNT ===== */
-.game-wrapper {
+/* gra */
+.ramka-gra {
     background-color: #fffdf0;
     border: 4px solid #7a8f3a;
     border-radius: 16px;
@@ -374,11 +333,10 @@ nav a:hover, .dropdown:hover > a {
     box-shadow: 0 8px 24px rgba(0,0,0,0.1);
     max-width: 690px;
     width: 100%;
-    margin: 0 auto 30px auto; 
+    margin: 0 auto 30px auto;
     box-sizing: border-box;
 }
-
-.game-top-bar {
+.gorny-pasek {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -387,23 +345,20 @@ nav a:hover, .dropdown:hover > a {
     font-weight: bold;
     color: #4a5d23;
 }
-
-.canvas-container {
+.oknogry {
     position: relative;
     width: 640px;
     height: 400px;
     border-radius: 8px;
     overflow: hidden;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
-
-#gameCanvas {
+#ekrangry {
     background-color: #f7f2c8;
     display: block;
     box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
 }
-
-.game-btn {
+.przyciski-gra {
     background-color: #ffffff;
     color: #4a5d23;
     border: 2px solid #4a5d23;
@@ -414,13 +369,11 @@ nav a:hover, .dropdown:hover > a {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
-
-.game-btn:hover {
+.przyciski-gra:hover {
     background-color: #fffbe8;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
-
 .end-screen {
     position: absolute;
     top: 0;
@@ -436,22 +389,18 @@ nav a:hover, .dropdown:hover > a {
     gap: 1rem;
     z-index: 5;
 }
-
 .end-screen h3 {
     font-size: 2.5rem;
     letter-spacing: 1px;
 }
-
 .end-screen p {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
 }
-
 .hidden {
     display: none !important;
 }
-
-/* SIATKA EWOLUCJI */
+/* ewolucje siatka */
 .evo-grid {
     display: flex;
     flex-wrap: wrap;
@@ -460,8 +409,7 @@ nav a:hover, .dropdown:hover > a {
     margin: 20px auto;
     max-width: 800px;
 }
-
-.evo-card {
+.evo-karta {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -474,49 +422,41 @@ nav a:hover, .dropdown:hover > a {
     width: 160px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-.evo-card:hover {
+.evo-karta:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
     border-color: #7a8f3a;
 }
-
-.evo-card img {
+.evo-karta img {
     height: 100px;
     object-fit: contain;
     margin-bottom: 8px;
 }
-
-.evo-card h3 {
+.evo-karta h3 {
     margin: 5px 0 3px;
     font-size: 16px;
     color: #4a5d23;
 }
-
-.evo-card p {
+.evo-karta p {
     margin: 0;
     font-size: 13px;
     color: #666;
 }
-
-/* PEŁNY EKRAN W GRZE */
-.canvas-container:fullscreen {
+/* pelny ekran w grze */
+.oknogry:fullscreen {
     width: 100vw;
     height: 100vh;
     background-color: #f7f2c8;
 }
-
-.canvas-container:fullscreen #gameCanvas {
+.oknogry:fullscreen #ekrangry {
     width: 100%;
     height: 100%;
 }
-
-.canvas-container:fullscreen .end-screen {
+.oknogry:fullscreen .end-screen {
     z-index: 9999;
 }
-
-/* ===== MODAL (ROZMIARÓWKA) ===== */
-.btn-rozmiarowka {
+/* modal rozmiarowka */
+.rozmiarowka {
     margin-top: 8px;
     background-color: #ffffff;
     color: #4a5d23;
@@ -528,12 +468,10 @@ nav a:hover, .dropdown:hover > a {
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
-
-.btn-rozmiarowka:hover {
+.rozmiarowka:hover {
     background-color: #fffbe8;
     transform: translateY(-2px);
 }
-
 .modal-overlay {
     display: none;
     position: fixed;
@@ -546,8 +484,7 @@ nav a:hover, .dropdown:hover > a {
     justify-content: center;
     align-items: center;
 }
-
-.modal-box {
+.modal {
     background-color: #fffdf0;
     border: 2px solid #7a8f3a;
     border-radius: 10px;
@@ -557,13 +494,11 @@ nav a:hover, .dropdown:hover > a {
     position: relative;
     text-align: center;
 }
-
-.modal-box h3 {
+.modal h3 {
     color: #4a5d23;
     margin-top: 0;
     font-size: 20px;
 }
-
 .modal-zamknij {
     position: absolute;
     top: 10px;
@@ -575,41 +510,34 @@ nav a:hover, .dropdown:hover > a {
     color: #4a5d23;
     font-weight: bold;
 }
-
 .modal-zamknij:hover {
     color: #7a8f3a;
 }
-
 .tabela-rozmiary {
     width: 100%;
     border-collapse: collapse;
     margin: 15px 0;
     font-size: 14px;
 }
-
 .tabela-rozmiary th {
     background-color: #7a8f3a;
     color: #ffffff;
     padding: 8px;
 }
-
 .tabela-rozmiary td {
     padding: 8px;
     border: 1px solid #ddd;
 }
-
 .tabela-rozmiary tr:nth-child(even) {
     background-color: #fffbe8;
 }
-
 .modal-info {
     font-size: 13px;
     color: #666;
     margin-top: 12px;
     font-style: italic;
 }
-
-/* ===== ANIMACJE BĄBELKÓW ===== */
+/* animacja poklatkowa i svg */
 .naglowek-kontener {
     display: flex;
     justify-content: center;
@@ -617,21 +545,17 @@ nav a:hover, .dropdown:hover > a {
     position: relative;
     gap: 20px;
 }
-
-.babal-animowany {
+.babel-animowany {
     width: 35px;
     height: 35px;
 }
-
 .babel-lewy {
     animation: skokLewy 2s steps(5) infinite;
 }
-
 .babel-prawy {
     animation: skokPrawy 2s steps(5) infinite;
-    animation-delay: 0.5s; 
+    animation-delay: 0.5s;
 }
-
 @keyframes skokLewy {
     0% { transform: translateY(15px) scale(0.8); opacity: 0; }
     20% { opacity: 1; }
@@ -639,7 +563,6 @@ nav a:hover, .dropdown:hover > a {
     80% { opacity: 1; }
     100% { transform: translateY(-25px) scale(0.7); opacity: 0; }
 }
-
 @keyframes skokPrawy {
     0% { transform: translateY(15px) scale(0.8); opacity: 0; }
     20% { opacity: 1; }
@@ -647,7 +570,6 @@ nav a:hover, .dropdown:hover > a {
     80% { opacity: 1; }
     100% { transform: translateY(-25px) scale(0.7); opacity: 0; }
 }
-
 /* ===== FOOTER ===== */
 footer {
     text-align: center;
@@ -657,28 +579,53 @@ footer {
     color: #555;
     background-color: #ffffff;
 }
-
 footer p {
     margin: 5px 0;
 }
-
-/* ===== RWD (MOBILNE) ===== */
+/* mobilne */
 @media (max-width: 950px) {
     .pokemon-layout {
         flex-direction: column;
     }
-    .pokemon-lewo-boczny, 
-    .pokemon-srodek, 
-    .pokemon-prawo-boczny {
+    .pokemon-lewo,
+    .pokemon-srodek,
+    .pokemon-prawo {
         width: 100%;
     }
     .pokemon-srodek {
         order: 1;
     }
-    .pokemon-lewo-boczny {
+    .pokemon-lewo {
         order: 2;
     }
-    .pokemon-prawo-boczny {
+    .pokemon-prawo {
         order: 3;
     }
+}
+
+/* strona glowna rozciaganie */
+
+.home .glowny-kontent, 
+.home .sklep-kontent, 
+.home .ramka-gra, 
+.home .tabela, 
+.home .evo-grid {
+    max-width: 1200px; 
+    width: 95%;        
+    margin: 0 auto;    
+    box-sizing: border-box;
+}
+
+.home .grid-fanartow {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.home .grid-fanartow .fanart-item {
+    width: 100%;
+    height: 300px; 
+    object-fit: contain; 
+    display: block;
 }
